@@ -1,5 +1,7 @@
 package edu.ithaca.dragon.shapes;
 
+import javax.management.RuntimeErrorException;
+
 public class Circle {
     private double radius;
 
@@ -7,6 +9,9 @@ public class Circle {
      * @throws IllegalArgumentException if radius is not a positive number
      */
     public Circle(double radius){
+        if (radius <= 0) {
+            throw new IllegalArgumentException("Radius must be a positive number");
+        }
         this.radius = radius;
     }
 
@@ -31,4 +36,9 @@ public class Circle {
     public double longestLineWithin(){
         return this.radius * 2 ; 
     }
+
+    public static void main(string[] args){
+        Circle x = new Circle(3) ;
+         double y = x.calcArea(); 
+
 }
